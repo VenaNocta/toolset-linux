@@ -16,7 +16,13 @@ folder | description
 Master2:
 ```
 /etc/bind/zones/net - folder for net. zone
-/etc/bind/zones/org/beta - folder for btea.org. zone
+/etc/bind/zones/org/beta - folder for beta.org. zone
+```
+
+### Install
+```bash
+sudo apt-get update
+sudo apt-get install bind9 bind9utils bind9-doc haveged
 ```
 
 ## DNS-SEC
