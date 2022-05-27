@@ -1,0 +1,276 @@
+; File written on Wed May 25 18:53:46 2022
+; dnssec_signzone version 9.16.1-Ubuntu
+.			1	IN SOA	. abuse.root.org. (
+					2205241945 ; serial
+					604800     ; refresh (1 week)
+					86400      ; retry (1 day)
+					2419200    ; expire (4 weeks)
+					1          ; minimum (1 second)
+					)
+			1	RRSIG	SOA 7 0 1 (
+					20220624155346 20220525155346 34023 .
+					bIKBrcdgEmifIkE+PD7524IgUcQEGz6+zkSP
+					bdwcfKOr7Nfcb6GyrLJ4g7D+arPt7gZC4U29
+					TXe9RGeTSkDRYQ4PFvWTDh9K4kMYb0TqM3eV
+					bZYHTWHWodfgxGRMFysrRdzNWSJB+xGohdrj
+					QJAsgv+2SXZRZ2SYhIIJrGec6KFESxBj8fHA
+					4poGUrA8Bal4nbsuznrbbKTgChAJ0n9VbBgg
+					gLaS9JkS8rYDEnHOPwc3Cjo+4KLdSpX/mbe1
+					8vE3E48ISN5t2bwq6DEm6Oxe5xWEn2uG9MUP
+					yYGqtKRKbBRBP7b+xyHL73M1o2VyTrb5u5QA
+					xeHkKkL1ZxIjdtGtUw== )
+			1	NS	root.org.
+			1	RRSIG	NS 7 0 1 (
+					20220624155346 20220525155346 34023 .
+					2T1yKSkL0Y60EAsRzvlde4zs7SbRHdnCqSgz
+					IYMh6LchGpedjIpychOk6RTsGXdWAGupgLEI
+					pJHiVci4otkR6+g2hO5GFea420NoTY3B9ycR
+					wBrD8qfvihWc2QWWXyzad/8iboCM5+PG/dtg
+					TbdZWsyTleq9gRW6urgxAf4irqTvIk2y//DM
+					LfSUwt1UQWojqGkMQzhjLq4NSJzAlK/vj/sE
+					ErGZPncNolxllKuQO7cM4zyYjgHexxqP3AXz
+					WKOQFwFPxPOJSA5HCjuEAlRFbg/mh10gbe/J
+					0l7tLpDSRTUOG0m84hbAQAPsljiN0lplQh3r
+					o4cM25g+taM7C+UGjA== )
+			1	DNSKEY	256 3 7 (
+					AwEAAd94vmExemUNjMFsztOIM2zcj2Eppy7t
+					JEEKqgXZhz97ehK5YVwXg6NVCr+CPc5A2bCb
+					aSBFpE+jReEFrRTefJOSXGGXbRneG7MPcJ8X
+					8ryDqhGDUWOIo29m/8t+uH1orHtEUt4kciFp
+					m9pVjfgux4EO6doe9mbKxox7mghsWw3dFZ60
+					xT+PCd+OQAxr/lF32idqQEgBNiJ3FroGO83G
+					Q2Huc8ht2APQprxudG1GXfQarG6izDkTD9f3
+					Pp8lug6M6ZlTd3ssuFo1lQEt2J35Pc10NaQX
+					DRfscyjhvT5c0jRRNQrBtWo4GKOtqZqakVos
+					+TAL/Xj6NagLQgxb4gSNoJ0=
+					) ; ZSK; alg = NSEC3RSASHA1 ; key id = 34023
+			1	DNSKEY	257 3 7 (
+					AwEAAbchyLPG5GVdghr6ZjJoNn7dTnK21K3q
+					mptEzVTt4u7p7+minW5yvS5gl9ebI1cCYDtM
+					leULHMsRMFtoAq4QXdq3j1xuYM3QR98xREg5
+					szKLhCYkEFhkM30hlzLw8sp2hx6/JmuNuC7U
+					Hi6YLq5NkOXlvnPmTb77hfc4R/HKeGP3bkec
+					nOUfo9lXQV5UJijtyOJViQEqVpiZDAGyngpG
+					8ie7E/9dDq9IMEVKkmsf/GEguxoUfCFFIbul
+					iaFsF6PQc1L532ooLQxdfVWjaH/s3wnGoGXU
+					wOAmN8sGzoCdkMiwJAMHCPxfZRTQI1Uc6x9J
+					UKcjh130rr+9E1l7F0VqgGgT/7bAc7L+cWdJ
+					v1yi+2eHu0rjI7FxxE8HziNAuTdFotEUUKT7
+					BXJzOxjKURcCdRrgAxPMK4IrcY1ZeiHn0euw
+					OvAAqprdO3AXCwPd/p6FVKUWE1H6VUulzIiq
+					ZNTh24CTr9NH+eBIoo0VhbW2WovXLdX3JSN8
+					DD/6t6xwW5ufsdNQhcA28Te/xe1XfK9FlYqD
+					FdOLYoJjn11bhsa+DUxyK5hNmQMjD9ma/7sS
+					UAAYuE8zwMMLB3YKUeSYbyZ1IQvKrhHynDxg
+					vtgHhIMT/HBORhBEVhTdjfnt4Ko5ihU7aIAo
+					YuRbrFpYY4uWY9f/AkiEfxNyCOg5O3vmYm6C
+					PHyJ
+					) ; KSK; alg = NSEC3RSASHA1 ; key id = 39181
+			1	RRSIG	DNSKEY 7 0 1 (
+					20220624155346 20220525155346 34023 .
+					dSEHUhNBSz99ty1+iDWwyh873eObNZChOPf2
+					A+9nf6vCYYh5ecVxghQuVkyJH2mV3yXA7CPE
+					HaefEbIG9+9suAhq6gsAhkzNiSCEUf0MgZtw
+					ifoVBAlSgsN2VEKbb3arlrnBvJI2ReHrqS07
+					6Vmestfsqsd/N4H3zko/SoQJfz2sGyULKznV
+					OXtw03ZpmEiZOTfHXJCRYajLvj+2k/hJ85Yb
+					pKVTHJJWiZiNuYM1UBIITdb1epLgJn34RBgI
+					4TVfrncRZVBo8Qa0VCk4bGvsMqUOwKVcoR6C
+					hKQiIrG6Eh5VXhOkc085RfpZFiBaX8E9FjQO
+					HoOpn3u/XMgPRotSOQ== )
+			1	RRSIG	DNSKEY 7 0 1 (
+					20220624155346 20220525155346 39181 .
+					pthoLjFLM/SiKtRlUrLdwegwUfzOnKUKfHhV
+					i/mH/BJkDnyM9moXm6q4UzNvwYHmthn0q+Vd
+					MsX4f2A+GD3FmCdvyL0AXnxVUX06nLFapF9V
+					nyNyR4rlFWpY3rjiH6BD+39ZKSaQemEAeOLi
+					qsxDqVtSlthXfnursUU9krbBL+i25FYhghdv
+					XP//lh9dCt28lWgevFJTHhtSfixvB4N1StuS
+					79hAgU/jCn/2AUwP5s9BxdEdftJX2DgCBpC5
+					DuJ3vOjmLhYR31/x51Gn6rU3EyhFLiLDLkHm
+					y7ByKjXer7+SjHPU0uLrWj2vJaILx76UctKi
+					ziyTlHhhfaQ1tiz8scdyYb4T9gke6qzbbJrR
+					QYSUkzd0IbMHcL73jgcomV0zA/eQszExw+vr
+					YFZ2h2j1eqln02HAy9n7bg8q6h4ezOF0Nrz4
+					pxRlFVZ5p6yn76kGZ0GC/5M2rMXFp/dnL1KU
+					vSOqXtsqmx/pULNI9oT5YR5wdikCJI7v4aRc
+					pk5D8nXa7JUxK6Uu5/4cD/+emz32eAzZ9Xku
+					rENQOBuXZV70y/rvXl9ZYPf/Eu1Ljd5CP2wu
+					QLHzo1ALLDVgw6kWjrgexLk1ae+ThbQCj4sk
+					4PmPVqILDqt50g19R1A2BlnwUwLHccgYFu7N
+					6lZh1ePTZUbbDfdxufittTp6ydPlnI4YfWc= )
+			0	NSEC3PARAM 1 0 10 AD8B507F09157827
+			0	RRSIG	NSEC3PARAM 7 0 0 (
+					20220624155346 20220525155346 34023 .
+					p81c3/mZi53xUpdTo+2/fJBx8rk0qz2l8ACB
+					gek5AlW9oygQkEm+eUCDWReDMJJ+4adGxQQi
+					OOjAlDdPmLnOQfSFbgMe17FcRF1CAAvSQA/k
+					7ervZLGiChBv/6BpsRqIHNhQrXQ6hnTYWQA+
+					lp3Y9kWs8jIK/NS4KlFyRZAOVwz9LuCfVMGX
+					+NJZ0zlAWnPpRSUPoovq4/5T2w3sqzjaz39t
+					lzswCj7aBttWlHgDwo6WIPbiJYeaQJ//Gw7L
+					QfT/1ksSjS+2pRI/sWNJOFUMYQFP8OXFIVhU
+					wZv9KzQwG3cK0eBAwd4dcKuqE30kgDcnSoA4
+					y5fqWZid02hzYkYnwg== )
+ns1.net.		1	IN A	172.16.0.12
+			1	AAAA	2001::12
+ns2.net.		1	IN A	172.16.0.13
+			1	AAAA	2001::13
+ns1.org.		1	IN A	172.16.0.11
+			1	AAAA	2001::11
+ns2.org.		1	IN A	172.16.0.13
+			1	AAAA	2001::13
+root.org.		1	IN A	172.16.0.10
+			1	AAAA	2001::10
+in-addr.arpa.		1	IN NS	root.org.
+			1	DS	63730 7 2 (
+					565B08E5A90D28DE3CB89DECCAD79D3A2572
+					BF7729982CAFF7048C5BD9C653A7 )
+			1	RRSIG	DS 7 2 1 (
+					20220624155346 20220525155346 34023 .
+					yyY08W65cv6pznZaicENn169BVdGliEv/I8K
+					9mjWJ/wsKpy7Hudc1pZT6Z4KUhdMN0ZpChyu
+					il7rsKHybbVYzJRURUGLNGhSUZGUEcQSe2Pm
+					2BBj8jQLIVtw13sr5La7oA0Flh/SwoiBfXr1
+					XG6mfOjv3F5o7Lw+KvWfKcMaEAmmiffr9H5D
+					x3FhYsz6suPA+j6peFe4scWWqL4BmsD9Y7dC
+					474A45ktmm0LNOPAtGQmWA7wzqGD3q4nH/PZ
+					pl2qDF536oxkWiDstygvkLgUrFwzbmS63Xbh
+					i5KdosYH3FPKTaa4UG2ExNiYPOlhod/AmyiJ
+					am+L1i8bwUyUCD9m3Q== )
+net.			1	IN NS	ns1.net.
+			1	IN NS	ns2.net.
+			1	DS	23586 7 2 (
+					50D8EADA0EF39877A1806631ED44B381D225
+					01F4CCEF2AB5A3FF9AF73CDADB47 )
+			1	RRSIG	DS 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					RV2sgxNJs7PPUfB1mMhZRYxI/U+f4ChE9cVX
+					g6j1StpREu6YwbSS/EO7HMUtmOfjpS+v2+gp
+					H+P/a+MqgssAQhldOp1uyEDkYJ7GcC0pObOO
+					iv9wOiJZc+W3axv8bnNTn6bTmOqoXHaHY+u2
+					WarL1XbbkrYODchD9p28dzj17WnwpFd0TAP6
+					5e00NVfJsXLnmIKYO+KxzW0d2TCPMiARe36n
+					N6VoZz2C1sy/utb6j13kMv+32z+33yFElqAQ
+					IPqRpN0itLFTMUg0NOujv9djBE6TVPD2BqRR
+					gyW7gzevyXW3cOzpf4rc/mohPPNWA04Bz0/g
+					daLbdIjjTeM3rVs4LQ== )
+test.			1	IN A	1.1.1.1
+			1	RRSIG	A 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					zNsyA/5At/g6pegqoO5JMsd2B3zfZwS/M1qU
+					2cMkkfrCmOsQRVz4mVhSftQn/vbNurp/u+Ox
+					hcDvvNkt4wqwsGExJzVWgex8d2nwjIZSHGk0
+					w+mDq5ov8fszU0LRriyF1ikB2TZZ2DKKJzI2
+					63QRN269zHw87v5jzcG2fBXZ1M2EIXQHARUz
+					z8Xyu8i2dVOpfa2JzGWs23X8GunTqU2zT9aJ
+					5hiXtD2lyG+YtP/OYziL85YJ6ARwkwkTKVRf
+					bWgsp7L11xNbPuXmWE5dXdYrlPb1ecSKbzK/
+					5MhdVzmAjThUt8VgnPbwsOvVNjlAGZon7//I
+					Ni3dOjXrohxiVIF0yg== )
+0M7FK3LFBA4DBT99NP9BQONU6A6H4APG. 1 IN NSEC3 1 1 10 AD8B507F09157827 (
+					1GRESETEQUOQ7KJ841O0HJQ051MF1T45
+					NS DS RRSIG )
+			1	RRSIG	NSEC3 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					aP41Iqi5PVd9hQT0nSijINh9lskkaCYh7Z7C
+					Qb24nxGysa6zbujlZmBCM/H+MXPA5AdZFSru
+					FE9GcsjPUwkJEL4xLWsDvI9unh4HT8i8chMT
+					UG1xwEzIHvIPI8YNm+1BDiDbnSbVH948KhwD
+					VAHsvJk2FikRSrRe8XsyE9WlFFZiPqScvXRr
+					zQWlwcTdND/saztqclhlVm1BEkXFPGKJchHP
+					YNpQTBzEXzDepTqCMBSs0lFi90zwvym76ikq
+					cTISfxpUIrxesLBK0AQFx7HnV1fwFMxwx2ff
+					XgIE74Ny8VDRB8pwj2wFcHONWjr6z2Ny7Bbz
+					cyrdRfDK05XD4QDHQg== )
+org.			1	IN NS	ns1.org.
+			1	IN NS	ns2.org.
+			1	DS	58551 7 2 (
+					FFD63C1F1BC5F1271FDE6ABDFF4774E6C9B2
+					4A7FD64839FF9DFC6111E577A765 )
+			1	RRSIG	DS 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					JPgaa8ALx4KI3Yf/c6sr8ZOv0eGTIBFYXio/
+					goUCJrfPsdpbZQMjdh5xuW0WBQ8Gn5FoUo2G
+					ARrBbT90Ybc0LqI8Vkn1/OtGQl/851+VPNSF
+					yFrtfycOps7DkL9DWCYq1Dp/5CddE/6N/XyF
+					e5LHtXF1gur9roKv54yCUm2ITKj1Srxcv9dh
+					JRfzR2fUvnpblNCGk/wbcvG9UDrge/lo1J6y
+					/ON2/pmX8HqZrjbPoG+2cXe4XFVdgjBUhHte
+					OS1Bn3GJQmPKksMdYyj9BTCs3SBv2pctsI4D
+					HYVotijq5tSYBmDw117srHCl88gU916+NfmS
+					BPUdyHvMdt3ZJxQ3jw== )
+HCB0R11NU1OGLD7FLMIB6VG5HH598FMC. 1 IN NSEC3 1 1 10 AD8B507F09157827 (
+					KC9FVTIDQRE5KC0I2LGCMSN54AK2QP59
+					NS SOA RRSIG DNSKEY NSEC3PARAM )
+			1	RRSIG	NSEC3 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					Ws5619r7+ZBJZW34DRStvLm8+PjFIHDKcxSH
+					IgBfv1lz1Ih6FCzdE1Z/a3TCmgVzXDDy5Xcy
+					Vux2HafhaAP6PrgPI00KFMW+hwfar1oTePmf
+					Z9vY/y16NSsVzG70j3k9Zr9egQXroxswd9Uy
+					JzvuRRjIUSzdzG/GmVkPoS33xtKCesyYya3G
+					Jdralgj5rhk/Wbmy2TWI9xDugQjg0elLtxez
+					RfZpMoReDCwiN8LASkfWQzbyUTiTzBntIb2g
+					pZhwoaoRUfBHiqzikgeqgQNkU2UVQOkGOCMo
+					6Pg8MPi+XSTaMbey3hzc2E4VL6sN9dwyoVmT
+					51wGQ5PLNfuD6/WwUw== )
+1GRESETEQUOQ7KJ841O0HJQ051MF1T45. 1 IN NSEC3 1 1 10 AD8B507F09157827 (
+					HCB0R11NU1OGLD7FLMIB6VG5HH598FMC
+					NS DS RRSIG )
+			1	RRSIG	NSEC3 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					F19Z1o/hrRdv/jlIo9bfsVGhLql5P+a3VBky
+					E7ut3DzRae5yQGE1rWFOJJvvVw96V40P+bTl
+					ae4n/PhYzvWjZXb/Z19fSt5wNoubw4sFW3GH
+					SyLgYSFR0vfOESUCFtXot4Q+yeAxtZxM0Vs6
+					aw3XzeNfZE3ISaZNPt0kq8Dbeo2J3FdezgLU
+					Ur857E1n5aDfR/2A8PkcxvbbjFWcqhJ0UCGx
+					vO18DB6hJ23NcXuVyqbsE2uI7EIwhphWHGtM
+					7RwnBJvqvmdxFf2q0ATREzcyIg1tVQbZsTih
+					iDhXDhjQsenhQ+dTTgiedogUSn81wYhaAEpl
+					J+a+68L2oerjTQgMwA== )
+KSIHO3H09KEIR82KFBQLRJF4M5CJG0PI. 1 IN NSEC3 1 1 10 AD8B507F09157827 (
+					NIHMUEM8MU7AQQJAV6KMM2EQ606RVU76
+					A RRSIG )
+			1	RRSIG	NSEC3 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					FsKBIoIjaNBCrDEYzvmbpCuFrseIY5MrPa8l
+					vU1neKyrG6KsNlhUi3lH6n3Mina0GLvJfgg/
+					5aBDdzPlEUHsO0U5UCTY4i2duGPU2MMfq2RH
+					zEMhmfiNSE7csaYGAIV28nLSac+LeA6dBqFo
+					KY1BRpT9fyT7Zuh0oH9BaghSASGP5aCRnzTE
+					xEIici0EGoyblGu1IUmliJrCfVQkX9N7gGmN
+					t+7f5+gp9ZH/4N3Z9hEYTFrN+16evrDt7JR0
+					eG1GL0yLFfO8Ueb2D/hwuJO0XhYoE2Tw1Kpb
+					oYn/MREDKEOyNeEcPhlZUIfyYl3GazQ/m0Ae
+					Ui7KSCskhIM4/dBRpw== )
+NIHMUEM8MU7AQQJAV6KMM2EQ606RVU76. 1 IN NSEC3 1 1 10 AD8B507F09157827 (
+					0M7FK3LFBA4DBT99NP9BQONU6A6H4APG )
+			1	RRSIG	NSEC3 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					QdzJfFQxS3bEo4j43Z44K1IcL90UGzlkP6r+
+					O7EoB3cIacjs4PfeaWi5VK0bD5aQ7Pa2EPnG
+					4Ey4452s9L+mdjQwLT4SJFlIFGGUNGnVpEhu
+					KNso34nZM5ClMiAwsGoy1flPCI7s0F9p7TiB
+					njWTcNpqr5VTFSbw3KGQ6c8ywwg0YOtAfPZp
+					1wa8sYG+/rtrBsjb4vs9CrACFdOo/XFjc2lH
+					5vtKCG7a4VjjiMffiVshtUfksShMCXMUIFji
+					8OVpmGeANevqyeEONgVMmEl1OqYDfATJ3NaF
+					WD+TR18O4Hy+QB++LwgYiRuUTS/Cq7jdrtn6
+					XiL4a5LIPKjxZklv7Q== )
+KC9FVTIDQRE5KC0I2LGCMSN54AK2QP59. 1 IN NSEC3 1 1 10 AD8B507F09157827 (
+					KSIHO3H09KEIR82KFBQLRJF4M5CJG0PI
+					NS DS RRSIG )
+			1	RRSIG	NSEC3 7 1 1 (
+					20220624155346 20220525155346 34023 .
+					AZ5yGElUStU4qY5fSI2jfWNQGT2JnQM1c6kc
+					XlJCiKjgBcJOQk7LU6Z25lFfQw1UyZrldVYq
+					oCO8BicqSzQN7scKnJ0rTjauNRiEAaXJrALG
+					kNid33Q+bzcLYy/mBSsZQLenmIwq9LGDtsHc
+					ydzI4jGttEGFyXaeqU7fjV9FyHQart1GURTF
+					U92IdzICZhM/BlLwHTeAskxauvWb13AHpl1q
+					QrK/UFH+puzpTc5V6g7SJ0yfDOKN7JTtpTFn
+					CigSLR4AH3eJ1M0Y7A3+UF8mVWrYlshfsaGT
+					z8+kW8KOf3wJlWuTlJS87P3aP6nP3Xcq8QnA
+					IJVwLowc7KjUB1Xgwg== )

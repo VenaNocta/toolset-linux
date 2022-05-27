@@ -1,0 +1,24 @@
+$TTL    1
+@       IN      SOA    org. abuse.ns1.org. (
+                     2205241945         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                              1 )       ; Negative Cache TTL
+;
+ns1.org.		IN	A	172.16.0.11	;
+ns2.org.		IN	A	172.16.0.13	;
+@			IN	NS	ns1.org.	;
+@			IN	NS	ns2.org.	;
+beta.org.		IN	NS	ns1.beta.org.	;
+ns1.beta.org.		IN	A	172.16.0.12	;
+ns2.beta.org.		IN	A	172.16.0.13	;
+
+ns1.org.		IN	AAAA	2001::11	;
+ns2.org.		IN	AAAA	2001::13	;
+ns1.beta.org.		IN	AAAA	2001::12	;
+ns2.beta.org.		IN	AAAA	2001::13	;
+
+$INCLUDE Korg.+007+28079.key
+$INCLUDE Korg.+007+58551.key
+$INCLUDE dsset-beta.org

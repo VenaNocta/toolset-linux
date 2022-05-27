@@ -1,0 +1,31 @@
+$TTL    1
+@       IN      SOA    alpha.net. abuse.alpha.net. (
+                     2205241943         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                              1 )       ; Negative Cache TTL
+;
+
+ns1.alpha.net.		IN	A		172.16.0.11	;
+@			IN	NS		ns1.alpha.net.	;
+ns2.alpha.net.		IN	A		172.16.0.13	;
+@			IN	NS		ns2.alpha.net.	;
+
+alpha.net.		IN	A		10.10.10.10	;
+troll			IN	A		20.20.20.20	;
+goblin			IN	A		30.30.30.30	;
+mail1			IN	MX	10	mail1		;
+mail1			IN	A		172.16.0.200	;
+oger			IN	CNAME		troll		;
+
+ns1.alpha.net.		IN	AAAA		2001::11	;
+ns2.alpha.net.		IN	AAAA		2001::13	;
+
+alpha.net.		IN	AAAA		10:10:10::10	;
+troll			IN	AAAA		20:20:20::20	;
+goblin			IN	AAAA		30:30:30::30	;
+mail1			IN	AAAA		2001::200	;
+
+$INCLUDE Kalpha.net.+007+13775.key
+$INCLUDE Kalpha.net.+007+18573.key
