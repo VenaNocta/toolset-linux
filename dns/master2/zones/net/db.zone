@@ -1,0 +1,22 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	1
+@	IN	SOA	net. abuse.ns1.net. (
+		     2205251745		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@		IN	NS	ns1.net.
+@		IN	NS	ns2.net.
+
+ns1.net.	IN	A	172.16.0.12
+ns1.net.	IN	AAAA	2001::12
+ns2.net.	IN	A	172.16.0.13
+ns2.net.	IN	AAAA	2001::13
+
+alpha		IN	NS	ns1.alpha.net.
+ns1.alpha	IN	A	172.16.0.11
+ns1.alpha	IN	AAAA	2001::11

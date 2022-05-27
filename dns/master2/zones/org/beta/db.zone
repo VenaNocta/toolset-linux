@@ -1,0 +1,29 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	1
+@	IN	SOA	beta.org. abuse.beta.org. (
+		     2205251745		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+@		IN	NS		ns1.beta.org.
+@		IN	NS		ns2.beta.org.
+ns1		IN	A		172.16.0.12
+ns1		IN	AAAA		2001::12
+ns2		IN	A		172.16.0.13
+ns2		IN	AAAA		2001::13
+
+@		IN	A		10.10.10.11
+@		IN	AAAA		10:10:10::11
+ork		IN	A		20.20.20.21
+ork		IN	AAAA		20:20:20::21
+elf		IN	A		30.30.30.31
+elf		IN	AAAA		30:30:30::31
+
+mail1		IN	MX	10	mail1
+mail1		IN	A		172.16.0.200
+mail1		IN	AAAA		2001::200
+wood.elf	IN	CNAME		elf
