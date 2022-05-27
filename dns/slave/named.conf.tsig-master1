@@ -1,0 +1,4 @@
+key "master1-tsig-key" {
+  algorithm hmac-sha512;
+  secret "YvAnObeP+e7NUpuzLthepHNPGePhSBuBChKVsPWihbpj3eJe83gjWnugz9C5/Q8GfDvmsfyejnX4aSsC325ZDA==";
+};

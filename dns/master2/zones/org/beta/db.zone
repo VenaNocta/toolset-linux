@@ -3,7 +3,7 @@
 ;
 $TTL	1
 @	IN	SOA	beta.org. abuse.beta.org. (
-		     2205251745		; Serial
+		     2205271530		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
@@ -23,7 +23,10 @@ ork		IN	AAAA		20:20:20::21
 elf		IN	A		30.30.30.31
 elf		IN	AAAA		30:30:30::31
 
-mail1		IN	MX	10	mail1
-mail1		IN	A		172.16.0.200
-mail1		IN	AAAA		2001::200
+@		IN	MX	10	mx1
+@		IN	MX	20	mx2
+mx1		IN	A		172.16.0.22
+mx1		IN	AAAA		2001::22
+mx2             IN      A               172.16.0.23
+mx2             IN      AAAA            2001::23
 wood.elf	IN	CNAME		elf

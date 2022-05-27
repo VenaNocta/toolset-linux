@@ -26,5 +26,13 @@ options {
 
 	recursion no;
 	listen-on { 172.16.0.12; };
-	allow-transfer { 172.16.0.13; 2001::13; };
+	allow-transfer { 
+		172.16.0.13;
+		2001::13;
+//		key tsig-key;
+	};
 };
+//key "tsig-key" {
+//	algorithm hmac-sha512;
+//	secret "aQ1SnpNBccTgyvCvPG7dgu6xOAeaX4kIWGfjtnOT85ASsIrutq5CoIYhjEoSfibaRKAtRiZ0xG86NYH8UZm2Lg==";
+//};
