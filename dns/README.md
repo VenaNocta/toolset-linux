@@ -16,7 +16,13 @@ Root hints under: /usr/share/dns/root.hints or in bind named.conf.default-zones
 Master2:
 ``` bash
 /etc/bind/zones/net - folder for net. zone
-/etc/bind/zones/org/beta - folder for btea.org. zone
+/etc/bind/zones/org/beta - folder for beta.org. zone
+```
+
+### Install
+```bash
+sudo apt-get update
+sudo apt-get install bind9 bind9utils bind9-doc haveged
 ```
 
 ## DNS-SEC
@@ -29,7 +35,7 @@ dnssec-validation yes;
 ```
 
 ### Generate DNSSEC-Keys
-``` bahs
+``` bash
 dnssec-keygen -a NSEC3RSASHA1 -b 2048 -n ZONE <zonename>
 dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -n ZONE <zonenname>
 ```
@@ -67,6 +73,8 @@ trusted-keys {
              YuRbrFpYY4uWY9f/AkiEfxNyCOg5O3vmYm6CPHyJ";
 };
 ```
+
+### Scripts
 
 ## MAIL
 
