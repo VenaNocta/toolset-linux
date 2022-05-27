@@ -1,0 +1,38 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "net." {
+	type slave;
+	file "slave/db.net";
+	masters { 172.16.0.12; };
+};
+
+zone "alpha.net." {
+	type slave;
+	file "slave/db.alpha.net";
+	masters { 172.16.0.11; };
+};
+
+zone "org." {
+	type slave;
+	file "slave/db.org";
+	masters { 172.16.0.11; };
+};
+
+zone "beta.org." {
+	type slave;
+	file "slave/db.beta.org";
+	masters { 172.16.0.12; };
+};
+
+// Reverse Lookup Zones
+
+zone "16.172.in-addr.arpa" {
+	type master;
+	file "/etc/bind/zones/172/16/db.keyed-zone.signed";
+};

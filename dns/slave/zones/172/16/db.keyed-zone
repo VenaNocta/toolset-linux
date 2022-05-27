@@ -1,0 +1,32 @@
+$TTL	1
+@	IN	SOA	16.172.in-addr.arpa. abuse.16.172.in-addr.arpa. (
+		     2205241750		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			      1 )	; Negative Cache TTL
+;
+
+16.172.in-addr.arpa.	IN	NS	ns2.net.
+	IN	NS	ns2.beta.org.
+	IN	NS	ns2.org.
+	IN	NS	ns2.alpha.net.
+
+15.0.16.172.in-addr.arpa.	IN	PTR	abc.at.
+
+11.0	IN	PTR	ns1.alpha.net.
+11.0	IN	PTR	ns1.org.
+
+
+12.0	IN	PTR	ns1.net.
+12.0	IN	PTR	ns1.beta.org.
+
+13.0	IN	PTR	ns2.org.
+13.0	IN	PTR	ns2.beta.org.
+13.0	IN	PTR	ns2.net.
+13.0	IN	PTR	ns2.alpha.net.
+
+200.0	IN	PTR	mail1.beta.org.
+200.0   IN      PTR     mail1.alpha.net.
+$INCLUDE K16.172.in-addr.arpa.+007+02987.key
+$INCLUDE K16.172.in-addr.arpa.+007+37605.key
