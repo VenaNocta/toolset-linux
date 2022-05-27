@@ -1,0 +1,32 @@
+options {
+	directory "/var/cache/bind";
+
+	// If there is a firewall between you and nameservers you want
+	// to talk to, you may need to fix the firewall to allow multiple
+	// ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+	// If your ISP provided one or more IP addresses for stable 
+	// nameservers, you probably want to use them as forwarders.  
+	// Uncomment the following block, and insert the addresses replacing 
+	// the all-0's placeholder.
+
+	// forwarders {
+	// 	0.0.0.0;
+	// };
+
+	//========================================================================
+	// If BIND logs error messages about the root key being expired,
+	// you will need to update your keys.  See https://www.isc.org/bind-keys
+	//========================================================================
+	recursion yes;
+	listen-on { 172.16.0.14; };
+	listen-on-v6 { 2001::14; };
+	dnssec-validation yes;
+	empty-zones-enable no;
+	
+
+};
+
+trusted-keys {
+  . 257 3 7 "AwEAAbchyLPG5GVdghr6ZjJoNn7dTnK21K3qmptEzVTt4u7p7+minW5yvS5gl9ebI1cCYDtMleULHMsRMFtoAq4QXdq3j1xuYM3QR98xREg5szKLhCYkEFhkM30hlzLw8sp2hx6/JmuNuC7UHi6YLq5NkOXlvnPmTb77hfc4R/HKeGP3bkecnOUfo9lXQV5UJijtyOJViQEqVpiZDAGyngpG8ie7E/9dDq9IMEVKkmsf/GEguxoUfCFFIbuliaFsF6PQc1L532ooLQxdfVWjaH/s3wnGoGXUwOAmN8sGzoCdkMiwJAMHCPxfZRTQI1Uc6x9JUKcjh130rr+9E1l7F0VqgGgT/7bAc7L+cWdJv1yi+2eHu0rjI7FxxE8HziNAuTdFotEUUKT7BXJzOxjKURcCdRrgAxPMK4IrcY1ZeiHn0euwOvAAqprdO3AXCwPd/p6FVKUWE1H6VUulzIiqZNTh24CTr9NH+eBIoo0VhbW2WovXLdX3JSN8DD/6t6xwW5ufsdNQhcA28Te/xe1XfK9FlYqDFdOLYoJjn11bhsa+DUxyK5hNmQMjD9ma/7sSUAAYuE8zwMMLB3YKUeSYbyZ1IQvKrhHynDxgvtgHhIMT/HBORhBEVhTdjfnt4Ko5ihU7aIAoYuRbrFpYY4uWY9f/AkiEfxNyCOg5O3vmYm6CPHyJ";
+};

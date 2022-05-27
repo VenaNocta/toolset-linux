@@ -1,0 +1,36 @@
+$TTL    1
+@       IN      SOA     . abuse.root.org. (
+                     2205241944         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                              1 )       ; Negative Cache TTL
+;
+root.org.		IN	A	172.16.0.10	;
+@			IN	NS	root.org.	;
+in-addr.arpa.		IN	NS	root.org.	;
+
+ns1.net.		IN	A	172.16.0.12	;
+ns2.net.		IN	A	172.16.0.13	;
+net.			IN	NS	ns1.net.	;
+net.			IN	NS	ns2.net.	;
+ns1.org.		IN	A	172.16.0.11	;
+ns2.org.		IN	A	172.16.0.13	;
+org.			IN	NS	ns1.org.	;
+org.			IN	NS	ns2.org.	;
+
+
+root.org.		IN	AAAA	2001::10	;
+ns1.net.		IN	AAAA	2001::12	;
+ns1.org.		IN	AAAA	2001::11	;
+ns2.net.		IN	AAAA	2001::13	;
+ns2.org.		IN	AAAA	2001::13	;
+
+test.			IN	A	1.1.1.1		;
+
+
+$INCLUDE K.+007+34023.key
+$INCLUDE K.+007+39181.key 
+$INCLUDE dsset-in-addr.arpa.
+$INCLUDE dsset-net.
+$INCLUDE dsset-org.

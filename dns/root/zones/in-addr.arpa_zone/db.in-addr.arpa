@@ -1,0 +1,15 @@
+$TTL	1
+@	IN	SOA	in-addr.arpa. abuse.in-addr.arpa. (
+		     2205241750		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			      1 )	; Negative Cache TTL
+
+in-addr.arpa.		IN	NS	root.org.
+16.172.in-addr.arpa.	IN	NS	ns2.net.
+16.172.in-addr.arpa.	IN	NS	ns2.org.
+
+$INCLUDE Kin-addr.arpa.+007+48654.key
+$INCLUDE Kin-addr.arpa.+007+63730.key
+$INCLUDE dsset-16.172.in-addr.arpa.

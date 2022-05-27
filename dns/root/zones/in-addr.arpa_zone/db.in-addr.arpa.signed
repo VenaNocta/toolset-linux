@@ -1,0 +1,175 @@
+; File written on Wed May 25 17:30:20 2022
+; dnssec_signzone version 9.16.1-Ubuntu
+in-addr.arpa.		1	IN SOA	in-addr.arpa. abuse.in-addr.arpa. (
+					2205241751 ; serial
+					604800     ; refresh (1 week)
+					86400      ; retry (1 day)
+					2419200    ; expire (4 weeks)
+					1          ; minimum (1 second)
+					)
+			1	RRSIG	SOA 7 2 1 (
+					20220624143020 20220525143020 48654 in-addr.arpa.
+					E4Z1AtP+Y3jxew31tCHB29mBIPg/CcHB6Tlc
+					2eqo0kO/yJXV2yx+Z/iu4V/KixNP/+/Sh9fE
+					OhdVvPHb0EE6aEXRHTKwUgtth/CObJj9RSyN
+					gwWep9JPMvxjLEJb6jXJgBWR6JYLWPjzuoaY
+					8ptWb/uKJnsfY1XCGMcH1EAVuzOR1X2KJRip
+					ZiTFq55+YdlUiOC5v9EnBLegudDh0Uhy/LT1
+					q9YBpsXmGKtqLmEdFdm06a8aneI6hRdNYLYs
+					ZCjjVmUE6l+lCJdFnAzFIIuCaKYDCSgkieU6
+					inDVwRJN0p53ateKqcqeIWNNIHXsCc2CS8t/
+					7IO5O5SN9yIqEeG/8g== )
+			1	NS	root.org.
+			1	RRSIG	NS 7 2 1 (
+					20220624143020 20220525143020 48654 in-addr.arpa.
+					pKjydnpB2RnV2bt+NUrIKQSWjI+22OZ0R2k0
+					glMYAdAXpM3hSrLJIAwokgALKbnQ5NHOMMoV
+					oFPiTwUOENpelI6WUFiALKvH29tJCkIBFLOs
+					R1XL0RpHmrmORWt/Tbqf90cFy+ZPSChfdnB7
+					AARgisjum4sTClWmUGBsJFOIj69HOyric3JY
+					AAKsWoQyY2/jY+VqK+rCoweF1EFvwMyLeo8X
+					ydHGn+4IPYpNMA6mo2nP0zxfAXNV9BQK4vZg
+					z5szSF3DAU7RTAtFUVTK4tA1luTEUS3fmV7b
+					kAJPL2w5ZUGz4cWe9lS2ZO5o1+qnT3tmCCqd
+					Qhpo/4WH3+KUBx3s6g== )
+			1	DNSKEY	256 3 7 (
+					AwEAAdYIyTUW/xDZARRxZLy/W9Bs6ryngZqf
+					B2ldcMCdQo09U2SposDAaAY4a5ZvQts1hj1s
+					q7zaNwy5jOv4UKODSKjRKC9T8Vfy04ZAlW6z
+					RhstSEZsAHoFrlXYNfytUPO6E7J7qDNXzPLo
+					Wc2Uq7qwtoWutCGLqRAbvcgj0mI81ntDJl1F
+					kpUAVcfnInDIc8qwGhTTmSpV44Z5LOwpzr4w
+					2OsdJGeX3FdB5fm+6rRdComd1W5NCR/6+f65
+					l9Q2YNaYPM137fI5Hn86nmszzvMkbG0TfAeP
+					SvQgce1jJJo2XLEuVj/Lwn47Nc2nKM5OePxL
+					LXlPhRQcWLIRitdxMK9Kxfc=
+					) ; ZSK; alg = NSEC3RSASHA1 ; key id = 48654
+			1	DNSKEY	257 3 7 (
+					AwEAAdD0RHSRWVX76W0+GdfXC0Wwagn31ndG
+					43XNX8vxl3C1EYYT+o2pJkfStKsgGYmyJfS0
+					AjTOepZCXPFVtWL7Plit6s36RQHRR4XlzV16
+					eopqOT2RSezEQGw3zp06x5FdOC5Zm8o3u4tN
+					i0LjxBlvVkPHYQL8A0eE5bbqcEqZZTkS+1Do
+					VKkJTQVkoTVEDnjPq76UAEXVr1mBrsHRGCQa
+					n0h21EzRSec3KbFXe1QWVfkqe9bJFCqMWuoz
+					VPbFfnORI+6rhKImvTltVd6yH/5p9tD4WtO4
+					bmrmGDuGONekyys+oD3eA857SBfZxoP9XM8O
+					OZ9YXYrgKLc/YixwhT6QrHBpG69SVpw0s1vU
+					B/khW6s/gLb09UUUBFwfe9nQWe2kStxArck2
+					JX6BqVDjrYnNgfBDLYLUH79OTYTkoIG+fGSb
+					ykmI7XV5tnSC9uiUUAK6ran63ol0dY5J/wdC
+					QfPHHc9D+Hfq24M205/fXvi0kERdsChXMk8I
+					cDIOibSG1x2eh0zTBs9+6+7j5J88ArZcC5b4
+					cbahGa2InB5A+ju/mnES4LUyvMLInJ4CcSGb
+					Z3gv8kaLfWPMRnMcqfrBT2P1M+eDQotVYnhD
+					iZCWXMh2vAzjUcgmUNbuYnqbbstgbyR54u7h
+					zvN33NgKmtI48a5wfylCmT3Gr/PRwhdSECcO
+					TC41
+					) ; KSK; alg = NSEC3RSASHA1 ; key id = 63730
+			1	RRSIG	DNSKEY 7 2 1 (
+					20220624143020 20220525143020 48654 in-addr.arpa.
+					qRwpc7iOMlTHZDDIJuGfXUY048d5yTr6XSmS
+					6W7LWT660PBEgEpqE3wo4O7WFAEnxq1mfgrC
+					M/8xWCWMCTeDEzfKFU+kQsJCDBYbKSuw2Hvm
+					EF4fPMyjP6Fo8x2l3evodeE+27/NXDmmBmAZ
+					+OarR2pXE6YS9d8A1N2nbLE4B3rh91YG3GPD
+					4hpywAnEy5WS9HvsI1SsNzYHMyfA7g7sCLGV
+					DFFxv+hCZAWm5NOYZfzL/kVtl9uIRJW/YGAX
+					Dc/TnqDFOdLBaArdBrWH2eXWbcn3bttWsMfn
+					NIKxSg3ijkugm1w1dL0oKC+9JV4s39+yw8Cs
+					dKpcLV4WlU25mefzNQ== )
+			1	RRSIG	DNSKEY 7 2 1 (
+					20220624143020 20220525143020 63730 in-addr.arpa.
+					eLEnUbdvukT8rq8y4WL2yHJcxEUc93/Dl5EJ
+					lg9SrjDNZIX1m19f86TuKMqLLAXqUi+GX00b
+					eOaxLeGe9NP2ZxtNl9LuzKuFJbtdSroIFvrl
+					P1GgUrL2NLNuuugkqTgMeS8K5aOsnc2QJdZw
+					MOwJ8z7Cn2itemQV9SlJSo1D08WIoAA2mVlo
+					fhqM54uS7AinKvj5DRaRVh73t6RWjIX03asb
+					x4/4o14bbz19TMnsfN4mADTnUYorwu94A3wN
+					VmYM2n5YikE8k0u3bWaywL9SSyR4f2oBHATU
+					j3pBgnk/jrfLqAkbmdoITWhLcnu314HhAqZt
+					swXqC+51Rp4/D1JpVUwr74T1NrTDP9r3RVjM
+					zdXdttLwT/om6WZMdwPMEbWerzrT/XE0uzRY
+					6Hskhn0hdx3ozipR/Rxkd6/hNFw8cQA+3ZDH
+					tAXApyz+IKyyZkZHdL9tutlgZKT2IG65U/S5
+					oUl7B177BPqbFB7y0Z+4iA3rO1HVViFiCLuM
+					b45PKJa4psVdijtsG8ARFOkyhAwxSIzLFNJR
+					OOxk7y8nFbVcOlMS2jlorL13hAjidM8QaXCa
+					3WX/4Xx3B8UIq0SssS902DnV92I/RcLoT+mr
+					OxXUTh3S+mzcH6EBzfkL7V0TbTQTgmLwygfU
+					X+DoyyNqd9e2KwPFU5klEcOyaODhkL1J+6Q= )
+			0	NSEC3PARAM 1 0 10 F32B1CA23A35F776
+			0	RRSIG	NSEC3PARAM 7 2 0 (
+					20220624143020 20220525143020 48654 in-addr.arpa.
+					QnvzJY7RH1CGVCyz1SQDPVJXuKgV6ubRBinR
+					oPIRnkGcSU1WXexKzmYIxN7tNSdffIL9g2YU
+					z9WFHVBdhEX5SFNHx/jTOZJ1Gkz4yh9usbTH
+					Cz0WCgqlgPpgZ9JV2KRgbIkuC3jG+f+1lCpy
+					C7laykt/CYliaLHGy5fdl88I/qFT6uloTJu4
+					YsyB+bbeHOxouNfzHG9URkltT0nZA3DnlYa8
+					FVEgO9wXUjsEAgMujZ51KO6Xij8ZfvQ7NOIG
+					y1+7xrPNrGKrt/9FN9ADZQC3B+IofiPKrQRE
+					b//M+VzrtEotRAIFU1ug+IGf2U26MyHlvgCn
+					eYiRrUlSBXDbXRBcYw== )
+16.172.in-addr.arpa.	1	IN NS	ns2.net.
+			1	IN NS	ns2.org.
+			1	DS	37605 7 2 (
+					9FAEB470DC595024E04A156D47CFC7A35B40
+					64B68B8678B252A1005E06592859 )
+			1	RRSIG	DS 7 4 1 (
+					20220624143020 20220525143020 48654 in-addr.arpa.
+					AMCh7iN2T/lqdKX1Ms2I2gC9Hsf4icjEGpW9
+					hwmwoIoNR4atufc1xA3N5+MBwUQ0Tepl6mVK
+					ssj6LFg0n8+L0H/ja1gK4Cvbh5CNEr5X40hA
+					+S/O9pCCN+8eJoGcBW0+ecejbmVYhuonJic/
+					Cg9+iadUr/1QjBP0TPOoUOfnARCn1YIO8Ces
+					e1CotIfcJoaNazkH6e4c9/B9GAej5/NbO0Hu
+					jtKnJCIfJANdjK+h0hr8HfaQ6hfBX1I1zOPN
+					zqJgBi9tmQ4SHT+ObeXl+xKTf0QBh4lPUQO7
+					umsyxDvBJ0uBzEnrc5Xi7qg/8ref+FdP6xWV
+					ciolgQC4t9s9D24Yjg== )
+7OOHPGOR1R2TO9NMHFCSPC565V26CHHG.in-addr.arpa. 1 IN NSEC3 1 1 10 F32B1CA23A35F776 (
+					HPDME0ACDA2EAJU05E5T9T0H14DBE6TC )
+			1	RRSIG	NSEC3 7 3 1 (
+					20220624143020 20220525143020 48654 in-addr.arpa.
+					ChbA5ZLmdSuiJ0N+CR9oYvCw+XAjSYwM5mlW
+					KyjMLay6CkVHO1IZYtmz34IN420L53fLufnZ
+					FOYxhk9h5FQ0RQzcOHQpFmvU4Lx7Sqm/3N8i
+					AnQCFic2yb40a5QCIYGHQBHRrapD2dbEJM0v
+					NbnAIDnW335w3s2aXdVNbPxVcKFdWtaxPjSd
+					Lwuq1i88toPT+gNOXVELJi2WEVxMx3Lvx5jh
+					K5/XKc488qDPIOzQZvciJ3t6WQmqCRughh9g
+					fZjHsg3KsKbsC4e/HRQepPPsaNgsOB670UPV
+					khgB9bMOgK6MRi35bWw1T18WdaXFqHXgakNs
+					6QdkUqJH+JlanoN6BQ== )
+N3A5BUMAM1RF2OV5MHLIKE359TNH0UQH.in-addr.arpa. 1 IN NSEC3 1 1 10 F32B1CA23A35F776 (
+					7OOHPGOR1R2TO9NMHFCSPC565V26CHHG
+					NS DS RRSIG )
+			1	RRSIG	NSEC3 7 3 1 (
+					20220624143020 20220525143020 48654 in-addr.arpa.
+					ZnG8h0ephzjPGB0NB0BNCBdU0vWOilEcsPu2
+					lI6JK0Nrw/FjqQU8AWGuXmoXZUsmKyrfSm2d
+					ctLkneJ/12KOydtZe4jvnU1ofimjXoaNH50w
+					1ad7gSUAC+eA8kcD98Ik+xjqI4Y8SjFIIXaN
+					oTb1NBDK7njkFlw37NGHrDReXn0UD766SOn0
+					tdfwUJSou0wF+XnTflPrpSXENKF2mbNwcoSd
+					pclHZ21Go7/8mSpovf08Y0kPxxrDJzai/ZMW
+					xKKmOl0h0cayLXk9PE6nP+3VQHnpV93QBJAB
+					NAyLOXFZROMyft5rWOqnCELYKosaLum99D/u
+					CYbb6dlJ0nwJUW2dYg== )
+HPDME0ACDA2EAJU05E5T9T0H14DBE6TC.in-addr.arpa. 1 IN NSEC3 1 1 10 F32B1CA23A35F776 (
+					N3A5BUMAM1RF2OV5MHLIKE359TNH0UQH
+					NS SOA RRSIG DNSKEY NSEC3PARAM )
+			1	RRSIG	NSEC3 7 3 1 (
+					20220624143020 20220525143020 48654 in-addr.arpa.
+					uv6EqKPtjdJFwn8oytKzVpjPJmW3JdY/INrI
+					MFoml2SXOw5eoXbnpwrujJnTpoSNthHhxyH1
+					nPezeEGPpX+MG+DmWSFtgF5bSR+7SrnW6uDT
+					YOYJAgWTI8wHTQzCZvdu17P2EzwOwjFk8gTy
+					hBuMgRvYa23MxVqor+bOj81Lp/SETnRyRSPH
+					Tz7n4tX1sVj+2hcjz5oJPjfW9GKzcsXQ3Xcu
+					S30KVwVROnaWganT84fP/bnY2UXIW9/YmfJe
+					gflOC3RKble7OcduieZEMCxOeGETsVx/xwGz
+					0OfvxIz8C+VkgYRwnaQ+SQkfzxTp49F+cOp+
+					z5+V3Kd78b/dw+/FKQ== )
