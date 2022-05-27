@@ -75,6 +75,75 @@ trusted-keys {
 ```
 
 ### Scripts
+Generate all keys:
+
+```bash
+#! /bin/bash
+
+rootpath=/etc/bind/zones
+
+#generate_keys <path> <zone>
+generate_keys () {
+  rm $rootpath/$1/K${2}*
+  dnssec-keygen -a NSEC3RSASHA1 -b 2048 -K $rootpath/$1 -n ZONE $2
+  dnssec-keygen -f KSK -a NSEC3RSASHA1 -b 4096 -K $rootpath/$1 -n ZONE $2
+  ls -l $rootpath/$1/
+}
+
+
+generate_keys net net
+#generate_keys org/beta beta.org
+```
+
+Sign Files:
+
+requires each ZONE to be in a folder on his own!
+
+to add signatures of subdomains just copy the files in the folder of the zonefile (db.zone)
+
+the dsset-* file will be put by default into the zones root folder (/etc/bind/zones) the signed file (db.keyed-zone.signed) will stay in the same folder as the zone file (db.zone)
+
+EX: net. zone is in the file >> zones/net/db.zone
+
+```bash
+#! /bin/bash
+
+rootpath=/etc/bind/zones
+
+#sign_zone <path> <zone>
+sign_zone () {
+  cd $rootpath/$1/
+  cat db.zone > db.keyed-zone
+  # include key files
+  for key in `ls K${2}*.key`
+  do
+  echo "\$INCLUDE $key">> db.keyed-zone
+  done
+  # include DS entries
+  for key in `ls dsset-*`
+  do
+  echo $(cat $key)>> db.keyed-zone
+  done
+
+# if is missing crypt pkg missing!
+# comment out next line and generate the salt.txt on you client
+# and upload it to the $rootpath
+  head -c 1000 /dev/random | sha1sum | cut -b 1-16 > $rootpath/salt.txt
+
+  local salt=$(cat $rootpath/salt.txt)
+  echo salt=$salt
+  echo dir=$(pwd)
+  dnssec-signzone -A -3 $salt -N INCREMENT -o $2 -t db.keyed-zone
+
+  mv dsset-${2}* $rootpath/
+  ls -l
+  cd $rootpath/
+}
+
+sign_zone net net
+#sign_zone org/beta beta.org
+```
+
 
 ## MAIL
 
