@@ -20,7 +20,7 @@ options {
 	// you will need to update your keys.  See https://www.isc.org/bind-keys
 	//========================================================================
 	dnssec-enable yes;
-	dnssec-validation auto;
+	dnssec-validation yes;
 
 	listen-on-v6 { 2001::13; };
 

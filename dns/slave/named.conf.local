@@ -6,6 +6,15 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
+//server 172.16.0.11 {
+// keys { master1-tsig-key; };
+//};
+
+//server 172.16.0.12 {
+// keys { master2-tsig-key; };
+//};
+
+
 zone "net." {
 	type slave;
 	file "slave/db.net";
