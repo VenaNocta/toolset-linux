@@ -282,17 +282,17 @@ inet_protocols = all
 
 Required structure:
 
-path | usuage
----|---
-/etc/apache2/ | apache config path
-/etc/apache2/sites-available | put a `.conf` file for every (sub)domain here (relative paths are handled in the domain conf file)
-/var/www/html/net/alpha/troll/index.php | troll.alpha.net
-/var/www/html/net/alpha/goblin/index.html | goblin.alpha.net
-/var/www/html/net/alpha/goblin/index.html | goblin.alpha.net
-/var/www/html/net/alpha/goblin/.htdigest | pw for -> goblin.alpha.net/block
-/var/www/html/net/alpha/goblin/block/index.html | goblin.alpha.net/block
-/var/www/html/org/beta/ork/index.html | ork.beta.org
-/var/www/html/org/beta/elf/<wordpress> | wordpress: elf.beta.org
+| path                                            | usuage                                                                                             |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| /etc/apache2/                                   | apache config path                                                                                 |
+| /etc/apache2/sites-available                    | put a `.conf` file for every (sub)domain here (relative paths are handled in the domain conf file) |
+| /var/www/html/net/alpha/troll/index.php         | troll.alpha.net                                                                                    |
+| /var/www/html/net/alpha/goblin/index.html       | goblin.alpha.net                                                                                   |
+| /var/www/html/net/alpha/goblin/index.html       | goblin.alpha.net                                                                                   |
+| /var/www/html/net/alpha/goblin/.htdigest        | pw for -> goblin.alpha.net/block                                                                   |
+| /var/www/html/net/alpha/goblin/block/index.html | goblin.alpha.net/block                                                                             |
+| /var/www/html/org/beta/ork/index.html           | ork.beta.org                                                                                       |
+| /var/www/html/org/beta/elf/<wordpress>          | wordpress: elf.beta.org                                                                            |
 
 > Example: 001-net-alpha.conf
 
