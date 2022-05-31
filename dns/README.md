@@ -150,7 +150,7 @@ sign_zone net net
 ### Primary Mailserver
 
 Dovecot configuration: (dovecot.conf)
-``` bash                      
+``` bash
 disable_plaintext_auth = no
 mail_privileged_group = mail
 mail_location = mbox:~/mail:INBOX=/var/mail/%u
@@ -236,6 +236,192 @@ Configures SASL auth with dovecot
 Configures the local domain and hostname
 
 ### Backup Mailserver
+Postfix config of Backup Mailserver
 
+```bash
+smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
+biff = no
+# appending .domain is the MUA's job.
+append_dot_mydomain = no
+# Uncomment the next line to generate "delayed mail" warnings
+#delay_warning_time = 4h
+readme_directory = no
+# See http://www.postfix.org/COMPATIBILITY_README.html -- default to 2 on
+# fresh installs.
+compatibility_level = 2
+
+# TLS parameters
+smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_tls_security_level=may
+
+smtp_tls_CApath=/etc/ssl/certs
+smtp_tls_security_level=may
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+
+relay_domains = mx1.beta.org, beta.org
+relay_recipient_maps =
+smtpd_recipient_restrictions = permit_mynetworks, reject_unauth_destination
+
+#myhostname = mx2.beta.org
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+myorigin = /etc/mailname
+#mydestination = mx1.beta.org, beta.org, localhost.localdomain, localhost
+relayhost =
+mynetworks = 172.16.0.0/24 [2001::]/64 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+inet_protocols = all
+```
 
 ## WEB
+
+### Setup Apache2
+
+Required structure:
+
+path | usuage
+---|---
+/etc/apache2/ | apache config path
+/etc/apache2/sites-available | put a `.conf` file for every (sub)domain here (relative paths are handled in the domain conf file)
+/var/www/html/net/alpha/troll/index.php | troll.alpha.net
+/var/www/html/net/alpha/goblin/index.html | goblin.alpha.net
+/var/www/html/net/alpha/goblin/index.html | goblin.alpha.net
+/var/www/html/net/alpha/goblin/.htdigest | pw for -> goblin.alpha.net/block
+/var/www/html/net/alpha/goblin/block/index.html | goblin.alpha.net/block
+/var/www/html/org/beta/ork/index.html | ork.beta.org
+/var/www/html/org/beta/elf/<wordpress> | wordpress: elf.beta.org
+
+> Example: 001-net-alpha.conf
+
+```conf
+<VirtualHost *:80>
+  #SSLEngine on
+  #AllowEncodedSlashes NoDecode
+
+  ServerName troll.alpha.net
+  ServerAdmin michael@alpha.net
+  DocumentRoot /var/www/html/net/alpha/troll
+
+  ErrorLog ${APACHE_LOG_DIR}/routes/api-error.log
+  CustomLog ${APACHE_LOG_DIR}/routes/api-access.log common
+  #Include /etc/letsencrypt/options-ssl-apache.conf
+
+  #SSLCertificateFile /etc/letsencrypt/live/runeduniverse.net-0003/fullchain.pem
+  #SSLCertificateKeyFile /etc/letsencrypt/live/runeduniverse.net-0003/privkey.pem
+</VirtualHost>
+
+<VirtualHost *:80>
+  #SSLEngine on
+  #AllowEncodedSlashes NoDecode
+
+  ServerName goblin.alpha.net
+  ServerAdmin michael@alpha.net
+  DocumentRoot /var/www/html/net/alpha/goblin
+
+  <Location /block>
+    AuthName 'Private'
+   AuthType Digest
+   AuthDigestDomain /
+   AuthDigestProvider file
+   AuthUserFile /var/www/html/net/alpha/goblin/.htdigest
+
+   Require valid-user
+  </Location>
+
+  ErrorLog ${APACHE_LOG_DIR}/routes/api-error.log
+  CustomLog ${APACHE_LOG_DIR}/routes/api-access.log common
+  #Include /etc/letsencrypt/options-ssl-apache.conf
+
+  #SSLCertificateFile /etc/letsencrypt/live/runeduniverse.net-0003/fullchain.pem
+  #SSLCertificateKeyFile /etc/letsencrypt/live/runeduniverse.net-0003/privkey.pem
+</VirtualHost>
+
+<VirtualHost *:80>
+  #SSLEngine on
+  #AllowEncodedSlashes NoDecode
+
+  ServerName oger.alpha.net
+  ServerAdmin michael@alpha.net
+  DocumentRoot /var/www/html/net/alpha/oger
+
+  ErrorLog ${APACHE_LOG_DIR}/routes/api-error.log
+  CustomLog ${APACHE_LOG_DIR}/routes/api-access.log common
+  #Include /etc/letsencrypt/options-ssl-apache.conf
+
+  #SSLCertificateFile /etc/letsencrypt/live/runeduniverse.net-0003/fullchain.pem
+  #SSLCertificateKeyFile /etc/letsencrypt/live/runeduniverse.net-0003/privkey.pem
+</VirtualHost>
+```
+
+Enable Site: `a2ensite 001-net-alpha`
+
+Restart Apache2: `service apache2 restart`
+
+> IN CASE OF ERRORS
+>
+> check most recent logs: `service apache2 status`
+>
+> just create all missing folders usually marked in red or yellow in above log: `mkdir -p <troubleing/path>`
+
+### Setup PHP
+
+install:
+```bash
+sudo apt install php libapache2-mod-php php-mysql
+```
+
+### Setup MySQL Database
+> linux typically forwards mysql to mariadb which is its opensource repalcement
+
+install:
+```bash
+sudo apt-get install mysql-server
+```
+
+configure:
+
+```bash
+$ sudo mysql -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.7.20-0ubuntu0.16.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE wordpress;
+Query OK, 1 row affected (0,00 sec)
+
+mysql> CREATE USER wordpress@localhost IDENTIFIED BY '<your-password>';
+Query OK, 1 row affected (0,00 sec)
+
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
+    -> ON wordpress.*
+    -> TO wordpress@localhost;
+Query OK, 1 row affected (0,00 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 1 row affected (0,00 sec)
+
+mysql> quit
+Bye
+```
+
+### Wordpress
+
+extract wordpress to the folder of your choice (it contains an `index.php` file at it's root)
+
+run that:
+```bash
+sudo a2enmod rewrite
+```
+
+open wordpress with the web route and run installer!
