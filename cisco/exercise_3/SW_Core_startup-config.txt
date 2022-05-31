@@ -1,0 +1,40 @@
+service password-encryption
+hostname SW_Core
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+spanning-tree vlan 10,19-20,30,99,666 priority 0
+!
+interface range FastEthernet0/1 - 22
+ switchport access vlan 19
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/23
+ switchport access vlan 19
+ switchport trunk native vlan 666
+ switchport trunk allowed vlan 10,19-20,30,99,666
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/24
+ switchport access vlan 30
+ switchport trunk native vlan 666
+ switchport trunk allowed vlan 10,19-20,30,99,666
+ switchport mode trunk
+!
+interface range GigabitEthernet0/1 - 2
+ switchport trunk native vlan 666
+ switchport trunk allowed vlan 10,19-20,30,99,666
+ switchport mode trunk
+!
+interface Vlan99
+ ip address 192.168.99.1 255.255.255.0
+!
+ip default-gateway 192.168.99.254
+!
+logging trap debugging
+logging 192.168.19.3

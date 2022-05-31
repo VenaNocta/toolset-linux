@@ -1,0 +1,43 @@
+service password-encryption
+hostname SW_E2_Nord
+!
+spanning-tree mode rapid-pvst
+spanning-tree extend system-id
+!
+interface range FastEthernet0/1 - 8
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface range FastEthernet0/9 - 16
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface range FastEthernet0/17 - 24
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface range GigabitEthernet0/1 - 2
+ switchport trunk native vlan 666
+ switchport trunk allowed vlan 10,19-20,30,99,666
+ switchport mode trunk
+!
+interface Vlan99
+ ip address 192.168.99.12 255.255.255.0
+!
+ip default-gateway 192.168.99.254
+!
+logging trap debugging
+logging 192.168.19.3
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login

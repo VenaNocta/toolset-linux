@@ -1,0 +1,119 @@
+service password-encryption
+hostname R_Zentrale
+!
+ip dhcp excluded-address 192.168.10.254
+ip dhcp excluded-address 192.168.20.254
+ip dhcp excluded-address 192.168.30.254
+!
+ip dhcp pool VLAN10
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.254
+ip dhcp pool VLAN20
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.254
+ip dhcp pool VLAN30
+ network 192.168.30.0 255.255.255.0
+ default-router 192.168.30.254
+!
+!
+username root privilege 15 password 0 P4ssw0rd
+!
+!
+ip domain-name fhstp.local
+!
+interface GigabitEthernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.254 255.255.255.0
+ ip access-group students in
+ ip nat inside
+!
+interface GigabitEthernet0/0.19
+ encapsulation dot1Q 19
+ ip address 192.168.19.254 255.255.255.0
+ ip access-group serverACL out
+ ip nat inside
+!
+interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.254 255.255.255.0
+ ip access-group lectures in
+ ip nat inside
+!
+interface GigabitEthernet0/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.30.254 255.255.255.0
+ ip access-group administrators in
+ ip nat inside
+!
+interface GigabitEthernet0/0.99
+ encapsulation dot1Q 99
+ ip address 192.168.99.254 255.255.255.0
+ ip access-group switchACL out
+ ip nat inside
+!
+interface GigabitEthernet0/1
+ ip address 91.219.68.253 255.255.255.252
+ ip nat outside
+!
+ip nat inside source list 1 interface GigabitEthernet0/1 overload
+ip route 0.0.0.0 0.0.0.0 91.219.68.254 
+!
+access-list 1 permit 192.168.0.0 0.0.255.255
+access-list 1 deny any
+ip access-list extended students
+ deny ip 192.168.10.0 0.0.0.255 192.168.20.0 0.0.0.255
+ deny ip 192.168.10.0 0.0.0.255 192.168.30.0 0.0.0.255
+ deny ip 192.168.10.0 0.0.0.255 192.168.99.0 0.0.0.255
+ permit ip any any
+ip access-list extended lectures
+ deny ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255
+ deny ip 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255
+ deny ip 192.168.20.0 0.0.0.255 192.168.99.0 0.0.0.255
+ permit ip any any
+ip access-list extended administrators
+ deny ip 192.168.30.0 0.0.0.255 192.168.10.0 0.0.0.255
+ deny ip 192.168.30.0 0.0.0.255 192.168.20.0 0.0.0.255
+ permit ip any any
+ip access-list extended serverACL
+ permit ip 192.168.10.0 0.0.0.255 host 192.168.19.1
+ deny ip 192.168.10.0 0.0.0.255 192.168.19.0 0.0.0.255
+ permit ip 192.168.20.0 0.0.0.255 host 192.168.19.1
+ permit ip 192.168.20.0 0.0.0.255 host 192.168.19.2
+ deny ip 192.168.20.0 0.0.0.255 192.168.19.0 0.0.0.255
+ permit ip 192.168.30.0 0.0.0.255 host 192.168.19.1
+ permit ip 192.168.30.0 0.0.0.255 host 192.168.19.2
+ permit ip 192.168.30.0 0.0.0.255 host 192.168.19.3
+ deny ip 192.168.30.0 0.0.0.255 192.168.19.0 0.0.0.255
+ permit ip host 192.168.99.1 host 192.168.19.3
+ permit ip host 192.168.99.11 host 192.168.19.3
+ permit ip host 192.168.99.12 host 192.168.19.3
+ permit ip host 192.168.99.21 host 192.168.19.3
+ permit ip host 192.168.99.22 host 192.168.19.3
+ deny ip 192.168.99.0 0.0.0.255 192.168.19.0 0.0.0.255
+ permit ip any any
+ip access-list extended switchACL
+ permit ip 192.168.30.0 0.0.0.255 host 192.168.99.11
+ permit ip 192.168.30.0 0.0.0.255 host 192.168.99.21
+ permit ip 192.168.30.0 0.0.0.255 host 192.168.99.12
+ permit ip 192.168.30.0 0.0.0.255 host 192.168.99.22
+ permit ip host 192.168.19.3 host 192.168.99.1
+ permit ip host 192.168.19.3 host 192.168.99.11
+ permit ip host 192.168.19.3 host 192.168.99.12
+ permit ip host 192.168.19.3 host 192.168.99.21
+ permit ip host 192.168.19.3 host 192.168.99.22
+ deny ip 192.168.0.0 0.0.0.255 192.168.99.0 0.0.0.255
+ permit ip any any
+!
+!
+logging trap debugging
+logging 192.168.19.3
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh

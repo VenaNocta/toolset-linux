@@ -1,0 +1,90 @@
+service password-encryption
+hostname ROst2
+!
+enable secret 5 $1$mERr$9z9BiTNFA6l8Qr1mh6HVi.
+enable password 7 0834425D0C1A1005170E02
+!
+ipv6 unicast-routing
+!
+!
+no ip domain-lookup
+!
+key chain keychain
+ key 1
+  key-string secureeigrp
+!
+interface GigabitEthernet0/0
+ description Link to LAN Ost2
+ ip address 172.17.255.254 255.255.0.0
+ duplex auto
+ speed auto
+ ipv6 address 2001:DB8:ACAD:AC11::254/64
+ ipv6 rip process1 enable 
+ ipv6 ospf 1 area 0
+!
+interface Serial0/1/0
+ description Link to ROst1
+ ip address 172.31.255.230 255.255.255.252
+ ip authentication mode eigrp 23 md5
+ ip authentication key-chain eigrp 23 keychain
+ delay 1999
+ ipv6 address 2001:DB8:ACAD:AC1F:FFE4::230/80
+ ipv6 eigrp 23
+ ipv6 rip process1 enable 
+ ipv6 ospf 1 area 0
+!
+interface Serial0/1/1
+ description Link to ROst
+ ip address 172.31.255.242 255.255.255.252
+ ip authentication mode eigrp 23 md5
+ ip authentication key-chain eigrp 23 keychain
+ delay 17000
+ ipv6 address 2001:DB8:ACAD:AC1F:FFF0::242/80
+ ipv6 eigrp 23
+ ipv6 rip process1 enable 
+ ipv6 ospf 1 area 0
+!
+router eigrp 23
+ distance 121 0.0.0.0 255.255.255.255
+ network 172.17.0.0
+ network 172.31.255.240 0.0.0.3
+ network 172.31.255.228 0.0.0.3
+!
+router ospf 10
+ log-adjacency-changes
+ area 1 stub
+ network 172.17.0.0 0.0.255.255 area 1
+ network 172.31.255.240 0.0.0.3 area 1
+ network 172.31.255.228 0.0.0.3 area 1
+!
+router rip
+ version 2
+ passive-interface default
+ no passive-interface Serial0/1/0
+ no passive-interface Serial0/1/1
+ network 172.17.0.0
+ network 172.31.0.0
+ no auto-summary
+!
+ipv6 router ospf 1
+ log-adjacency-changes
+!
+ipv6 router eigrp 23
+ no shutdown 
+!
+ipv6 router rip process1
+!
+!
+line con 0
+ password 7 0832494D1C0B00141D05
+!
+line aux 0
+!
+line vty 0 4
+ password 7 0832494D1C0B00031707
+ login
+ transport input telnet
+line vty 5 15
+ password 7 0832494D1C0B00031707
+ login
+ transport input telnet

@@ -1,0 +1,116 @@
+service password-encryption
+hostname RZentrale
+!
+enable secret 5 $1$mERr$9z9BiTNFA6l8Qr1mh6HVi.
+enable password 7 0834425D0C1A1005170E02
+!
+ipv6 unicast-routing
+!
+!
+username router password 7 0832494D1C0B00040103
+!
+no ip domain-lookup
+ip domain-name router.local
+!
+!
+key chain keychain
+ key 1
+  key-string secureeigrp
+!
+interface GigabitEthernet0/0
+ description Zentrale LAN
+ ip address 172.30.255.254 255.255.0.0
+ duplex auto
+ speed auto
+ ipv6 address 2001:DB8:ACAD:AC1E::254/64
+ ipv6 eigrp 23
+ ipv6 rip process1 enable 
+ ipv6 ospf 1 area 0
+!
+interface Serial0/0/0
+ description Link to Ost
+ ip address 172.31.255.253 255.255.255.252
+ ip authentication mode eigrp 23 md5
+ ip authentication key-chain eigrp 23 keychain
+ ipv6 address 2001:DB8:ACAD:AC1F:FFFC::253/80
+ ipv6 eigrp 23
+ ipv6 rip process1 enable 
+ ipv6 rip process1 default-information originate
+ ipv6 ospf 1 area 0
+ clock rate 4000000
+!
+interface Serial0/0/1
+ description Link to West
+ ip address 172.31.255.249 255.255.255.252
+ ip authentication mode eigrp 23 md5
+ ip authentication key-chain eigrp 23 keychain
+ ipv6 address 2001:DB8:ACAD:AC1F:FFF8::249/80
+ ipv6 eigrp 23
+ ipv6 rip process1 enable 
+ ipv6 rip process1 default-information originate
+ ipv6 ospf 1 area 0
+ clock rate 4000000
+!
+interface Serial0/1/0
+ description Link to Internet
+ ip address 199.1.1.66 255.255.255.252
+ ipv6 address 2001:DB8:ACAD:1::1/64
+ ipv6 eigrp 23
+ ipv6 rip process1 enable 
+ ipv6 ospf 1 area 0
+!
+router eigrp 23
+ distance 121 0.0.0.0 255.255.255.255
+ redistribute static 
+ network 172.30.0.0
+ network 172.31.255.252 0.0.0.3
+ network 172.31.255.248 0.0.0.3
+ network 199.1.1.64 0.0.0.3
+!
+router ospf 10
+ log-adjacency-changes
+ network 172.30.0.0 0.0.255.255 area 0
+ network 172.31.255.252 0.0.0.3 area 0
+ network 172.31.255.248 0.0.0.3 area 0
+ network 199.1.1.64 0.0.0.3 area 0
+ default-information originate
+!
+router rip
+ version 2
+ passive-interface default
+ no passive-interface Serial0/0/0
+ no passive-interface Serial0/0/1
+ no passive-interface Serial0/1/0
+ no passive-interface Serial0/1/1
+ network 172.30.0.0
+ network 172.31.0.0
+ network 199.1.1.0
+ default-information originate
+ no auto-summary
+!
+ipv6 router ospf 1
+ log-adjacency-changes
+!
+ipv6 router eigrp 23
+ no shutdown 
+!
+ipv6 router rip process1
+ redistribute static 
+!
+ip route 0.0.0.0 0.0.0.0 199.1.1.65 
+!
+ipv6 route ::/0 2001:DB8:ACAD:1::2
+!
+!
+line con 0
+ password 7 0832494D1C0B00141D05
+!
+line aux 0
+!
+line vty 0 4
+ password 7 0832494D1C0B00031707
+ login local
+line vty 5 15
+ password 7 0832494D1C0B00031707
+ login local
+
