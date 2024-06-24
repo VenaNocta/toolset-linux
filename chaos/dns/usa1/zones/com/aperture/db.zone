@@ -1,0 +1,22 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	1
+@   IN  SOA    aperture.com.    abuse.aperture.com. (
+                       2205251745	; Serial
+                       604800		; Refresh
+                       86400		; Retry
+                       2419200		; Expire
+                       604800 )		; Negative Cache TTL
+;
+
+@         IN      NS      ns1.aperture.com.
+@         IN      AAAA    2001:10:b:1::2
+ns1       IN      AAAA    2001:10:b:1::2
+
+@         IN      MX      10    mx1
+
+mx1       IN      AAAA    2001:10:b:1::2
+
+; wood.elf  IN      CNAME   elf
+

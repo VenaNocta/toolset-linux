@@ -1,0 +1,3 @@
+aperture      IN    NS    ns1.aperture.com.
+ns1.aperture  IN    AAAA  2001:10:b:1::2
+

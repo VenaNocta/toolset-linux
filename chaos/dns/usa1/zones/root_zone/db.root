@@ -1,0 +1,21 @@
+$TTL    1
+@       IN      SOA     . abuse.root.com. (
+                     2205241944         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                              1 )       ; Negative Cache TTL
+;
+
+@              IN  NS    root.com.	;
+@              IN  NS    root.net.	;
+
+root.com.      IN  AAAA  2001:10:b:1::2
+; root.net.      IN  AAAA  2001:10:c:1::2
+
+com.           IN  NS    ns1.com.	;
+ns1.com.       IN  AAAA  2001:10:b:1::2	;
+
+net.           IN  NS    ns1.net.	;
+ns1.net.       IN  AAAA  2001:10:c:1::2	;
+

@@ -1,0 +1,18 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	1
+@   IN  SOA    com.    abuse.ns1.com. (
+                       2205251745	; Serial
+                       604800		; Refresh
+                       86400		; Retry
+                       2419200		; Expire
+                       604800 )		; Negative Cache TTL
+;
+
+@             IN    NS    ns1.com.
+
+ns1.com.      IN    AAAA  2001:10:b:1::2
+
+$INCLUDE      aperture/db.include
+

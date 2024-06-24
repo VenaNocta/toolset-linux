@@ -1,0 +1,32 @@
+$TTL	1
+@     IN    SOA   ip6.arpa.  abuse.ip6.arpa. (
+                      2205241750	; Serial
+                      604800		; Refresh
+                      86400			; Retry
+                      2419200		; Expire
+                      1 )			; Negative Cache TTL
+
+ip6.arpa.             IN    NS  root.com.
+; ip6.arpa.             IN    NS  root.net.
+
+; ROOT SERVERS
+2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.0.0.0.b.0.0.0.0.1.0.0.1.0.0.2.ip6.arpa. IN      PTR   root.com.
+; 2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.0.0.0.c.0.0.0.0.1.0.0.1.0.0.2.ip6.arpa. IN      PTR   root.net.
+
+; TLDs
+; com - NA - 2001:10:b:1::2
+1.0.0.0.b.0.0.0.0.1.0.0.1.0.0.2.ip6.arpa.                                 IN      NS    ns1.com.
+2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.0.0.0.b.0.0.0.0.1.0.0.1.0.0.2.ip6.arpa. IN      PTR   ns1.com.
+; net - NA - 2001:10:c:1::2
+; 1.0.0.0.c.0.0.0.0.1.0.0.1.0.0.2.ip6.arpa.                                 IN      NS    ns1.net.
+; 2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.0.0.0.c.0.0.0.0.1.0.0.1.0.0.2.ip6.arpa. IN      PTR   ns1.net.
+
+; COMPANIES
+1.0.0.0.b.0.0.0.0.1.0.0.1.0.0.2.ip6.arpa.                                 IN      NS    ns1.aperture.com.
+2.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1.0.0.0.b.0.0.0.0.1.0.0.1.0.0.2.ip6.arpa. IN      PTR   ns1.aperture.com.
+
+
+
+;; 16.172.in-addr.arpa.	IN	NS	ns2.net.
+;; 16.172.in-addr.arpa.	IN	NS	ns2.org.
+

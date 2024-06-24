@@ -1,0 +1,36 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "com." {
+	type master;
+	file "/etc/bind/zones/com/db.zone";
+//	allow-transfer { <ip>; };
+};
+
+// zone "beta.org." {
+// 	type master;
+// 	file "/etc/bind/zones/org/beta/db.keyed-zone.signed";
+// 
+// };
+
+// Reverse Lookup Zones
+
+//zone "16.172.in-addr.arpa"  { type master; file "/etc/bind/zones/172/16/db.172.16"; };
+
+//zone "17.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "18.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "19.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "20.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "21.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "22.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "23.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "24.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "25.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "26.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+//zone "27.172.in-addr.arpa"  { type master; file "/etc/bind/db.empty"; };
+
